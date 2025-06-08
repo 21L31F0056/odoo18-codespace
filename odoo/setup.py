@@ -1,75 +1,24 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
+# Copyright (C) 2021 Open Source Integrators
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from setuptools import find_packages, setup
-from os.path import join, dirname
-
-
-exec(open(join(dirname(__file__), 'odoo', 'release.py'), 'rb').read())  # Load release variables
-lib_name = 'odoo'
 
 setup(
-    name='odoo',
-    version=version,
-    description=description,
-    long_description=long_desc,
-    url=url,
-    author=author,
-    author_email=author_email,
-    classifiers=[c for c in classifiers.split('\n') if c],
-    license=license,
-    scripts=['setup/odoo'],
-    packages=find_packages(),
-    package_dir={'%s' % lib_name: 'odoo'},
+    name="odoo-songs",
+    version="18.0.1.0.0",
+    description="Odoo ERP",
+    license="GNU Affero General Public License v3 or later (AGPLv3+)",
+    author="Open Source Integrators",
+    author_email="support@opensourceintegrators.com",
+    url="https://opensourceintegrators.com",
+    packages=["songs"] + ["songs.%s" % p for p in find_packages("./songs")],
     include_package_data=True,
-    install_requires=[
-        'asn1crypto',
-        'babel >= 1.0',
-        'cbor2',
-        'chardet',
-        'cryptography',
-        'decorator',
-        'docutils',
-        'geoip2',
-        'gevent',
-        'greenlet',
-        'idna',
-        'Jinja2',
-        'lxml',  # windows binary http://www.lfd.uci.edu/~gohlke/pythonlibs/
-        'libsass',
-        'MarkupSafe',
-        'num2words',
-        'ofxparse',
-        'openpyxl',
-        'passlib',
-        'pillow',  # windows binary http://www.lfd.uci.edu/~gohlke/pythonlibs/
-        'polib',
-        'psutil',  # windows binary code.google.com/p/psutil/downloads/list
-        'psycopg2 >= 2.2',
-        'pyopenssl',
-        'PyPDF2',
-        'pyserial',
-        'python-dateutil',
-        'python-stdnum',
-        'pytz',
-        'pyusb >= 1.0.0b1',
-        'qrcode',
-        'reportlab',  # windows binary pypi.python.org/pypi/reportlab
-        'rjsmin',
-        'requests',
-        'urllib3',
-        'vobject',
-        'werkzeug',
-        'xlrd',
-        'xlsxwriter',
-        'xlwt',
-        'zeep',
-    ],
-    python_requires='>=3.10',
-    extras_require={
-        'ldap': ['python-ldap'],
-    },
-    tests_require=[
-        'freezegun',
+    classifiers=[
+        "Development Status :: 4 - Beta",
+        "License :: OSI Approved",
+        "License :: OSI Approved :: "
+        "GNU Affero General Public License v3 or later (AGPLv3+)",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: Implementation :: CPython",
     ],
 )

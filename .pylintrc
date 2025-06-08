@@ -1,0 +1,62 @@
+[MASTER]
+load-plugins=pylint_odoo
+score=n
+
+[ODOOLINT]
+readme-template-url="https://github.com/OCA/maintainer-tools/blob/master/template/module/README.rst"
+manifest-required-authors=Open Source Integrators
+manifest-required-keys=license
+manifest-deprecated-keys=description,active
+license-allowed=AGPL-3,GPL-2,GPL-2 or any later version,GPL-3,GPL-3 or any later version,LGPL-3
+valid-odoo-versions=17.0
+
+[MESSAGES CONTROL]
+disable=all
+
+# This .pylintrc contains optional checks only
+# .pylintrc-mandatory containing only mandatory checks is used the pre-commit
+# config as a blocking check.
+
+enable=api-one-deprecated,
+    character-not-valid-in-resource-link,
+    class-camelcase,
+    consider-merging-classes-inherited,
+    create-user-wo-reset-password,
+    dangerous-filter-wo-user,
+    dangerous-qweb-replace-wo-priority,
+    deprecated-data-xml-node,
+    deprecated-module,
+    deprecated-openerp-xml-node,
+    file-not-used,
+    invalid-commit,
+    license-allowed,
+    manifest-author-string,
+    manifest-deprecated-key,
+    manifest-maintainers-list,
+    manifest-required-author,
+    manifest-required-key,
+    manifest-version-format,
+    missing-manifest-dependency,
+    missing-newline-extrafiles,
+    missing-readme,
+    no-utf8-coding-comment,
+    odoo-addons-relative-import,
+    old-api7-method-defined,
+    pointless-statement,
+    pointless-string-statement,
+    redefined-builtin,
+    rst-syntax-error,
+    too-complex,
+    translation-field,
+    translation-required,
+    unnecessary-utf8-coding-comment,
+    use-vim-comment,
+    website-manifest-key-not-valid-uri,
+    xml-deprecated-qweb-directive,
+    xml-deprecated-tree-attribute
+
+
+[REPORTS]
+msg-template={path}:{line}: [{msg_id}({symbol}), {obj}] {msg}
+output-format=colorized
+reports=no

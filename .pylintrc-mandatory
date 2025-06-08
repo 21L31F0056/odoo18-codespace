@@ -1,0 +1,65 @@
+[MASTER]
+load-plugins=pylint_odoo
+score=n
+
+[ODOOLINT]
+readme-template-url="https://github.com/OCA/maintainer-tools/blob/master/template/module/README.rst"
+manifest-required-authors=Open Source Integrators
+manifest-required-keys=license
+manifest-deprecated-keys=description,active
+license-allowed=AGPL-3,GPL-2,GPL-2 or any later version,GPL-3,GPL-3 or any later version,LGPL-3
+valid-odoo-versions=17.0
+
+[MESSAGES CONTROL]
+disable=all
+
+enable=anomalous-backslash-in-string,
+    api-one-multi-together,
+    assignment-from-none,
+    attribute-deprecated,
+    attribute-string-redundant,
+    context-overridden,
+    dangerous-default-value,
+    dangerous-view-replace-wo-priority,
+    development-status-allowed,
+    duplicate-id-csv,
+    duplicate-key,
+    duplicate-po-message-definition,
+    duplicate-xml-fields,
+    duplicate-xml-record-id,
+    eval-referenced,
+    eval-used,
+    except-pass,
+    external-request-timeout,
+    incoherent-interpreter-exec-perm,
+    method-compute,
+    method-inverse,
+    method-required-super,
+    method-search,
+    missing-return,
+    openerp-exception-warning,
+    po-msgstr-variables,
+    po-syntax-error,
+    print-used,
+    redundant-keyword-arg,
+    redundant-modulename-xml,
+    reimported,
+    relative-import,
+    renamed-field-parameter,
+    resource-not-exist,
+    return-in-init,
+    sql-injection,
+    str-format-used,
+    test-folder-imported,
+    too-few-format-args,
+    translation-contains-variable,
+    translation-positional-used,
+    unreachable,
+    wrong-tabs-instead-of-spaces,
+    xml-attribute-translatable,
+    xml-syntax-error
+
+[REPORTS]
+msg-template={path}:{line}: [{msg_id}({symbol}), {obj}] {msg}
+output-format=colorized
+reports=no
