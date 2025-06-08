@@ -1,0 +1,10 @@
+psycopg2
+lxml
+pillow
+babel
+passlib
+werkzeug
+python-dateutil
+pyyaml
+decorator
+requests

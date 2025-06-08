@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_form_inherit_custom" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.custom</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+             <xpath expr="//header" position="inside">
+                <button name="compute_total_working_hours" string="Recompute Hours" type="object" class="oe_highlight" icon="fa-refresh"/>
+            </xpath>
+            <xpath expr="//field[@name='coach_id']" position="after">
+                <field name="join_date"/>
+                <field name="total_working_hours" widget="float_time" invisible="True"/>
+                <field name="billable_hrs" widget="float_time"/>
+                <field name="non_billable_hrs" widget="float_time"/>
+                <field name="reason"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

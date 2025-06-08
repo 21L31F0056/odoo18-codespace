@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<sdwot>
+       <data>
+              <record id="view_account_payment_form_inherit_payment1" model="ir.ui.view">
+                     <field name="name">view.account.payment.form.inherit.payment1</field>
+                     <field name="model">account.payment</field>
+                     <field name="inherit_id" ref="account.view_account_payment_form"/>
+                     <field name="arch" type="xml">
+                     <field name="journal_id" position="after">
+                            <field name="exchange_rate"
+                                                        invisible="currency_id == company_currency_id" readonly="state != 'draft'"
+                                                        groups="base.group_multi_currency"/>
+                            <field name="inverse_exchange_rate"
+                                   invisible="currency_id == company_currency_id" readonly="1"
+                                   force_save="1" store="True" groups="base.group_multi_currency"/>
+                     </field>
+                     <xpath expr="//sheet" position="inside">
+                            <notebook>
+                                   <page string="Other">
+                                          <group>
+                                                 <field name="bank_charge" readonly="state != 'draft'"/>
+                                                 <field name="charge_account_id" options="{'no_create': True, 'no_open': True}"
+                                                        invisible="bank_charge &lt;= 0.0" readonly="state != 'draft'"
+                                                        required="bank_charge &gt; 0.0"/>
+                                                 <field name="currency_id" invisible="1"/>
+                                                 <field name="company_currency_id" invisible="1"/>
+                                                 <field name="add_charges"
+                                                        readonly="state not in ['draft']"/>
+                                                 <field name="charges"
+                                                        invisible="add_charges != True" required="add_charges == True"
+                                                        readonly="state not in ['draft']"/>
+                                                 <field name="is_fx_transaction" readonly="state not in ['draft']"/>
+                                                 </group>
+                                                 <group>
+                                                 <label for="fx_exchange_rate" invisible="is_fx_transaction == False"
+                                                        readonly="state not in ['draft']"/>
+                                                 <div name="exchange_rate_div" class="o_row" invisible="is_fx_transaction == False"
+                                                        readonly="state not in ['draft']">
+                                                        <field name="fx_exchange_rate"
+                                                               invisible="is_fx_transaction == False" readonly="state not in ['draft']"/>
+                                                        <field name="fx_currency_id"   placeholder="Currency" options="{'no_create': True}"
+                                                               invisible="is_fx_transaction == False" required="is_fx_transaction == True"
+                                                               readonly="state not in ['draft']"/>
+                                                 </div>
+                                                 <field name="fx_amount_in_currency"
+                                                        invisible="is_fx_transaction == False" readonly="1"/>
+                                          </group>
+                                   </page>
+                            </notebook>
+                     </xpath>
+                     </field>
+              </record>
+       </data>
+</sdwot>

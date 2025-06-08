@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sdwot>
+    <data>
+
+        <record id="view_currency_form_inherit_1" model="ir.ui.view">
+            <field name="name">res.currency.form.inherit1</field>
+            <field name="model">res.currency</field>
+            <field name="inherit_id" ref="base.view_currency_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='rates']/field[@name='rate_ids']/tree" position="inside">
+                    <field name="buy_company_rate" digits="[12,12]"/>
+                    <field name="buy_inverse_company_rate" digits="[12,12]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record forcecreate="True" id="exchange_rate" model="decimal.precision">
+            <field name="name">Exchange Rate</field>
+            <field name="digits">2</field>
+        </record>
+        <record forcecreate="True" id="inverse_exchange_rate" model="decimal.precision">
+            <field name="name">Inverse Exchange Rate</field>
+            <field name="digits">10</field>
+        </record>
+
+
+    </data>
+</sdwot>
